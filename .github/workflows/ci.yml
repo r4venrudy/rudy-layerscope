@@ -1,0 +1,41 @@
+name: Build and verify
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  verify:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v6
+        with:
+          go-version: '1.27.x'
+          cache: false
+      - name: Format
+        shell: bash
+        run: test -z "$(gofmt -l .)"
+      - run: go vet ./...
+      - run: go test '-coverprofile=coverage.out' ./...
+      - name: Race detector
+        if: runner.os == 'Linux'
+        run: go test -race ./...
+      - name: Bounded fuzz smoke
+        if: runner.os == 'Linux'
+        shell: bash
+        run: |
+          go test -run='^$' -fuzz=FuzzNormalizePath -fuzztime=5s -parallel=2 .
+          go test -run='^$' -fuzz=FuzzJSON -fuzztime=5s -parallel=2 .
+          go test -run='^$' -fuzz=FuzzLayer -fuzztime=5s -parallel=2 .
+      - name: Native package and exact-binary smoke
+        run: go run scripts/package.go --out artifacts/ci
+      - uses: actions/upload-artifact@v4
+        with:
+          name: layerscope-${{ runner.os }}-${{ runner.arch }}
+          path: artifacts/ci/*
+          if-no-files-found: error

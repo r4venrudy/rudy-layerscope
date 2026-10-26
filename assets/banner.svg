@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="350" viewBox="0 0 1200 350" role="img" aria-labelledby="title desc">
+  <title id="title">Rudy LayerScope</title>
+  <desc id="desc">See what the final filesystem hides. A layered image diagram with a hidden credential revision.</desc>
+  <defs><pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" stroke="#203342" fill="none"/></pattern></defs>
+  <rect width="1200" height="350" rx="20" fill="#0b1118"/>
+  <rect x="765" width="435" height="350" rx="20" fill="url(#grid)" opacity=".55"/>
+  <path d="M0 26v298" stroke="#55e0b6" stroke-width="7"/>
+  <text x="48" y="62" font-family="Consolas,monospace" font-size="14" letter-spacing="4" fill="#55e0b6">RUDY SYSTEMS / OCI LAYER FORENSICS</text>
+  <text x="46" y="140" font-family="Segoe UI,Arial,sans-serif" font-weight="700" font-size="58" fill="#f0f6fc">Rudy LayerScope</text>
+  <text x="49" y="184" font-family="Segoe UI,Arial,sans-serif" font-size="24" fill="#b5cadd">See what the final filesystem hides.</text>
+  <text x="49" y="222" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#8ba4b8">Verified layers. File history. Evidence that survives deletion.</text>
+  <path d="M48 272H730" stroke="#233342"/>
+  <text x="49" y="308" font-family="Consolas,monospace" font-size="14" letter-spacing="2" fill="#55e0b6">GO / OFFLINE / NO EXTRACTION / MIT</text>
+  <g font-family="Consolas,monospace" font-size="13" text-anchor="middle">
+    <g fill="#101e2a" stroke="#294557"><rect x="820" y="50" width="310" height="52" rx="7"/><rect x="820" y="130" width="310" height="52" rx="7"/><rect x="820" y="210" width="310" height="52" rx="7"/></g>
+    <text x="975" y="81" fill="#dbe8f2">FINAL / NO KEY VISIBLE</text>
+    <text x="975" y="161" fill="#55e0b6">LAYER 1 / WHITEOUT</text>
+    <text x="975" y="241" fill="#e8c775">LAYER 0 / KEY RETAINED</text>
+    <path d="M975 103v26m-5-6 5 6 5-6M975 183v26m-5-6 5 6 5-6" fill="none" stroke="#55e0b6" stroke-width="2"/>
+    <text x="975" y="307" fill="#8ba4b8" font-size="11">INTEGRITY VERIFIED / SOURCE REVIEW</text>
+  </g>
+</svg>

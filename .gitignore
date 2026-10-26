@@ -1,0 +1,6 @@
+/artifacts/
+/artifacts-demo/
+/bin/
+*.test
+coverage.out
+/coverage
