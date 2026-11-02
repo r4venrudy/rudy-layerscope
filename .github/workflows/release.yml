@@ -56,6 +56,8 @@ jobs:
         run: |
           cat *.sha256 | sort -k2 > SHA256SUMS
           sha256sum -c SHA256SUMS
+      - name: Verify release archive integrity
+        run: python .github/scripts/release_guard.py artifacts/release
       - uses: softprops/action-gh-release@efb35369e0ad2afab669f228072c1b0d510eae64 # v3
         with:
           name: Rudy LayerScope ${{ github.ref_name }}
